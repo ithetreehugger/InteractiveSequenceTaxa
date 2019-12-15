@@ -1,7 +1,9 @@
 # Installation
 ## Docker
 
-using docker, run 
+- Ensure docker is installed
+
+execute the following commands in the terminal
 ```bash
 docker pull yeng2/interactivesequencetaxa
 docker run -p 127.0.0.1:5006:5006/tcp yeng/interactivesequencetaxa
