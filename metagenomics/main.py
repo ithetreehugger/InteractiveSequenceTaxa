@@ -17,34 +17,18 @@ original_columns = ['##Sequence_ID', 'Hit_Coordinates', 'NCBI_Taxon_ID', 'Taxon_
                  'Markers_Hit']
 taxa_rank_order = ["species", "genus", "family", "order", "class", "phylum", "no rank"]
 
-# lineag_df = pd.read_csv("phylosift/ncbitax2lin/lineages-2019-12-08.csv")
-# lineag_df = lineag_df[['tax_id'] + taxa_rank_order]
-# lineag_df.to_csv("phylosift/ncbitax2lin/lineages-2019-12-08-abridged2.csv")
 lineage_df = pd.read_csv("lineages-2019-12-08-abridged2.csv")
 
 source_filter = {}
 
-# df1: pd.DataFrame = pd.read_csv("phylosift/sequence_taxa.csv", sep='\t')
-# df1 = df1[df1.Taxon_Rank.isin(taxa_rank_order)]
-# df1.to_csv("phylosift/sequence_taxa-abridged.csv", sep='\t')
-# df1: pd.DataFrame = pd.read_csv("phylosift/sequence_taxa-abridged.csv", sep='\t')
-# df1 = df1[df1.Taxon_Rank.isin(taxa_rank_order)]
-
-# df2: pd.DataFrame = pd.read_csv("phylosift/results2/sequence_taxa.txt", sep='\t')
-# df2 = df2[df2.Taxon_Rank.isin(taxa_rank_order)]
-# df2.to_csv("phylosift/sequence_taxa-even-abridged.txt", sep='\t')
-# df2: pd.DataFrame = pd.read_csv("phylosift/sequence_taxa-even-abridged.txt", sep='\t')
-# df2 = df2[df2.Taxon_Rank.isin(taxa_rank_order)]
-
 columns: List[TableColumn] = [TableColumn(field=k, title=k) for k in original_columns]
 inputs: Dict = {}
-# inputs['staggered']: Dict = {"df": df1}
-# inputs['even']: Dict = {"df": df2}
 
+  
 def getActiveSource():
     return inputs[active_input]['source']
 
-
+  
 def getActiveDf():
     return inputs[active_input]['df']
 
@@ -52,10 +36,12 @@ def getActiveDf():
 def getActiveTable():
     return inputs[active_input]['table']
 
+  
 def generateLineageDf(df: pd.DataFrame):
     ids = df['NCBI_Taxon_ID']
     return lineage_df[lineage_df.tax_id.isin(ids)]
 
+  
 def initDataSets():
     global inputs
     for name, d in inputs.items():
