@@ -31,10 +31,11 @@ git clone https://github.com/ithetreehugger/InteractiveSequenceTaxa.git
 
 Then, the example data will be locate in ./InteractiveSequenceTaxa/ExampleData
 
-There are 3 files:
+There are 4 files:
 - sequence-even-abridged.csv
 - sequence-staggered-abridged.txt
 - sequence-staggered.txt
+- sequence_taxa-even.txt
 
 The abridged versions are smaller samples, to improve loading time.
 
