@@ -22,7 +22,7 @@ Then, in your browser, go to `127.0.0.1:5006`
 - `pipenv run bokeh serve --websocket-max-message-size 104857600 --show metagenomics --allow-websocket-origin=*`
 
 
-# Using the Exapmle Data
+# Using the Example Data
 
 To acces the example data, clone this git repository:
 ``` bash
@@ -39,6 +39,4 @@ There are 3 files:
 The abridged versions are smaller samples, to improve loading time.
 
 To load the example data in the application, click `choose File` and navigate to the sample data
-
-# Using the Application
 
